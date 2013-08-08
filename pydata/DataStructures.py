@@ -15,32 +15,25 @@ the ADT is a list implementation of the ADT. Otherwise, the augmented name
 will describe the implementation of the ADT i.e. linked for a linked list
 implementation and etc.
 
-========
 Contents
-========
+--------
+Helper Data Structures:
+*Node
+*TreeCell
 
-Helper Data Structures
-----------------------
-Node
-TreeCell
+Classic Data Structures:
+*Bag
+*Stack
+*Linked Stack
+*Queue
+*Linked Queue
+*Priority Queue
+*Dictionary/Hash Table
 
-Classic Data Structures
------------------------
-Bag
-Stack
-Linked Stack
-Queue
-Linked Queue
-Priority Queue
-Dictionary/Hash Table
-
-
-Other Data Structures
----------------------
 """
-
-#==========================HELPER STRUCTURES================================
-
+#============================
+#   Helper Data Structures
+#============================
 class Node(object): #NEEDS TO BE DEBUGGED ... USING A GETTER OR SETTER MAKES PYTHON CALL ON NONE TYPE
     """
     Instances represent a linked node that can be used to implement ADTs
@@ -67,8 +60,9 @@ class TreeCell(object):
     """
     pass
 
-
-#=========================ADT IMPLEMENTATIONS===============================
+#=============================
+#   Classic Data Structures
+#=============================
 class Bag(object):
     """
     Instances represent a list implementation of the Bag data structure.
@@ -143,6 +137,7 @@ class Stack(object):
     def clear(self):
         del s[0:len(_data)]
 
+
 class LinkedStack(object):
     """
     Instances represent a LinkedList implementation of the Stack data structure.
@@ -187,11 +182,19 @@ class LinkedStack(object):
 class Queue(object):
     pass
 
+
 class LinkedQueue(object):
     pass
+
 
 class PriorityQueue(object):
     pass
 
+
 class Dictionary(object):
     pass
+
+
+#===========================
+#   Other Data Structures
+#===========================

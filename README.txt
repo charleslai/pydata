@@ -1,8 +1,8 @@
-===========
-PythonData
-===========
+======
+PyData
+======
 
-Python Data provides modules for various implementations of data
+PyData provides modules for various implementations of data
 stuctures as well as algorithms and tools for analyzing/manipulating
 them. 
 
@@ -14,6 +14,53 @@ or what a priority queue is).
 
 Algorithms
 ==========
+Module of different searching and sorting algorithms. These algorithms will
+look slightly different in python than java because lists are mutable. This
+way, we dont have to create a new data structure for creating partions for
+various divide and conquer algorithms which reduces the need for a bunch of
+new variables in recursive call stacks
+
+The module includes a lot of excessive comments that will explain what each
+algorithm is doing which I think will be useful to new computer science 
+students.
+
+Contents
+--------
+Searching Algorithms: 
+*linear search (iterative and recursive)
+*binary search (iterative and recursive)
+*bogosearch 
+
+Sorting Algorithms: 
+*insertion sort
+*selection sort
+*quick sort
+*merge sort 
+*shell sort
 
 Data Structures
 ===============
+This module contains both implementations of common abstract data types as
+well as "helper" data structures for different implementations including
+linked nodes and tree cells.
+
+If the class name of the ADT implementation has no sigils/suffix/prefix, then
+the ADT is a list implementation of the ADT. Otherwise, the augmented name
+will describe the implementation of the ADT i.e. linked for a linked list
+implementation and etc.
+
+
+Contents
+--------
+Helper Data Structures:
+*Node
+*TreeCell
+
+Classic Data Structures:
+*Bag
+*Stack
+*Linked Stack
+*Queue
+*Linked Queue
+*Priority Queue
+*Dictionary/Hash Table

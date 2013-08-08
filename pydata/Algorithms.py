@@ -20,16 +20,19 @@ students.
 
 Contents
 --------
-Searching Algorithms: linear search, binary search, 
-bogosearch 
+Searching Algorithms: 
+*linear search (iterative and recursive)
+*binary search (iterative and recursive)
+*bogosearch 
 
-Sorting Algorithms: insertion sort, selection sort, quick sort,
-merge sort shell sort
+Sorting Algorithms: 
+*insertion sort
+*selection sort
+*quick sort
+*merge sort 
+*shell sort
 
-NOTE: n refers to the size of the array/list/sequence unless otherwise
-noted
 """
-
 #===========================
 #   Searching Algorithms   
 #===========================
@@ -139,6 +142,7 @@ def binary_search_r(sequence, value):
 
     Precondition: sequence is a mutafble list already sorted from
     sequence[0...len(sequence)-1]
+
     ============
     Description: 
     ============
