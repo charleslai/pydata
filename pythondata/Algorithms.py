@@ -5,34 +5,34 @@ import random
 import time
 
 """
-Module of different searching, sorting, and other random functions
-including different primality tests and fun algorithms These algorithms will
+==========
+Algorithms
+==========
+Module of different searching and sorting algorithms. These algorithms will
 look slightly different in python than java because lists are mutable. This
 way, we dont have to create a new data structure for creating partions for
 various divide and conquer algorithms which reduces the need for a bunch of
 new variables in recursive call stacks
 
 The module includes a lot of excessive comments that will explain what each
-algorithm is doing which is useful for people who are just learning the
-algorithms.
+algorithm is doing which I think will be useful to new computer science 
+students.
 
-This module contains: 
-
-Searching Algorithms: linear search, binary search,
+Contents
+--------
+Searching Algorithms: linear search, binary search, 
 bogosearch 
 
 Sorting Algorithms: insertion sort, selection sort, quick sort,
 merge sort shell sort
 
-Primality Checking Algorithms:
-Fermat, Solovay-Strassen, Miller-Rabin Helper Algorithms: partition, swap,
-push down
-
 NOTE: n refers to the size of the array/list/sequence unless otherwise
 noted
 """
 
-#============================================= SEARCHING ALGORITHMS ===============================================#
+#===========================
+#   Searching Algorithms   
+#===========================
 def linear_search_i(sequence, value):
     """
     Returns: Index position of the searched value. If the value is not
@@ -41,7 +41,10 @@ def linear_search_i(sequence, value):
 
     Precondition: sequence is a mutable sequence (i.e. a list)
 
-    Description: Linear search is a linear searching algorithm that runs in
+    ============
+    Description:
+    ============
+    Linear search is a linear searching algorithm that runs in
     O(n) time. The algorithm iteratively checks if each value in the list is
     the value we are looking for or not. A common implementation is to check
     if the first value is the value we are looking for. If so, return the
@@ -68,7 +71,10 @@ def linear_search_r(sequence, value):
 
     Precondition: sequence is a mutable list data structure
 
-    Description: This is a recursive implementation of the linear search
+    ============
+    Description: 
+    ============
+    This is a recursive implementation of the linear search
     algorithm described above. For more information about the algorithm,
     please read the description on the implementation above.
     """
@@ -92,7 +98,10 @@ def binary_search_i(sequence, value):
     Precondition: sequence is a mutable list already sorted from
     sequence[0...len(sequence)-1]
 
-    Description: Binary search is a divide-and-conquer searching algorithm
+    ============
+    Description: 
+    ============
+    Binary search is a divide-and-conquer searching algorithm
     that runs in O(log(n)) time. First the algorithm finds the middle of the
     list and checks if its greater than the goal value. If it is, then run the
     algorithm again on list[:middle] or values less than middle. Otherwise,
@@ -130,8 +139,10 @@ def binary_search_r(sequence, value):
 
     Precondition: sequence is a mutafble list already sorted from
     sequence[0...len(sequence)-1]
-
-    Description: This is a recursive implementation of the binary search algorithm
+    ============
+    Description: 
+    ============
+    This is a recursive implementation of the binary search algorithm
     described above. For more information about the algorithm, please read the
     description on the implementation above.
     """
@@ -158,7 +169,10 @@ def bogo_search(sequence, value, counter=20):
     Returns: Index position of the searched value. If the value is not in 
     the list, raise a ValueError. Default counter value is 20 seconds.
 
-    Description: This is a very naive searching algorithm that simply
+    ============
+    Description: 
+    ============
+    This is a very naive searching algorithm that simply
     checks random index positions in the list until the value we are looking
     for has been found or we hit our defined counter value.
     """
@@ -175,14 +189,19 @@ def bogo_search(sequence, value, counter=20):
             raise ValueError
 
 
-#==================================================== SORTING ALGORITHMS =====================================================#
+#========================
+#   Sorting Algorithms   
+#========================
 def bubble_sort(sequence):
     """
     Procedure: Sorts the list in O(n^2) worst case time. 
 
     Precondition: sequence is a mutable sequence i.e. a list
 
-    Description: BubbleSort is an iterative, linear sorting algorithm that
+    ============
+    Description: 
+    ============
+    BubbleSort is an iterative, linear sorting algorithm that
     runs in O(n^2) time. this algorithm works by "bubbling" each element up
     the list into its sorted order. After each iteration, the amount of
     unsorted elements in the list decreases by 1 - the max value is at the end
@@ -207,7 +226,10 @@ def insertion_sort(sequence):
 
     Precondition: sequence is a mutable sequence i.e. a list
 
-    Description: Insertion sort is similar to the bubble sort; it's a
+    ============
+    Description: 
+    ============
+    Insertion sort is similar to the bubble sort; it's a
     iterative, linear sorting algorithm that runs in O(n^2) time. The
     difference is two-fold. It starts from a small portion of a list, sorts
     it, and then runs again on an iteratively larger portion of the list such
@@ -230,8 +252,11 @@ def selection_sort(sequence):
     Procedure: sorts the sequence in O(n^2) worst case time. 
 
     Precondition: sequence is a mutable sequence i.e a list
-    
-    Description: Insertion sort is similar to the bubble sort; it's a
+
+    ============
+    Description:
+    ============ 
+    Insertion sort is similar to the bubble sort; it's a
     iterative, linear sorting algorithm that runs in O(n^2) time. The
     difference is two-fold. It starts from a small portion of a list, sorts
     it, and then runs again on an iteratively larger portion of the list such
@@ -263,11 +288,15 @@ def quick_sort(sequence, start=0, end=None):
     Precondition: start and end are valid indices of the list and start < end.
     sequence is a mutable sequence, i.e., a list.
 
-    Description: QuickSort is a recursive, divide-and-conquer sorting
+    ============
+    Description:
+    ============
+    QuickSort is a recursive, divide-and-conquer sorting
     algorithm in O(nlog(n)) time. This algorithm works by heuristically
     locating a "pivot" position (we'll assume the list is equi-disordered so
-    we'll simply take the beginning of the list as the pivot). Then on our
-    first recursive call, we partition the list around the pivot such that
+    we'll simply take the beginning of the list as the pivot).
+
+    On our first recursive call, we partition the list around the pivot such that
     values greater than or equal to the pivot are moved after it and values
     less than the pivot are moved before it. The list will then look like:
     [...smaller values..., pivot,...larger values...]. Then we call quick sort
@@ -298,7 +327,10 @@ def merge_sort(sequence):
 
     Precondition: sequence is a mutable sequence (i.e. a list)
 
-    Description: Merge sort is a divide-and-conquer sorting algorithm that runs 
+    ============
+    Description: 
+    ============
+    Merge sort is a divide-and-conquer sorting algorithm that runs 
     in O(nlog(n)) time.
     """
     if len(sequence) > 1:
@@ -315,10 +347,15 @@ def heap_sort(sequence):
 
     Precondition: sequence is a mutable sequence (i.e. a list)
  
-    Description: Heapsort is a divide-and-conquer sorting algorithm that runs
+    ============
+    Description:
+    ============ 
+    Heapsort is a divide-and-conquer sorting algorithm that runs
     in O(nlog(n)) time. This algorithm works by creating a balanced min-heap
     data structure out of a list/sequence. [explain what a balanced min-heap is
-    here]. After the heap is created, the heap data structure is repeatedly
+    here]. 
+
+    After the heap is created, the heap data structure is repeatedly
     popped to get the minimum value (n times) and placed into a new, sorted
     list. After each pop, the heap is resorted in order to maintain the
     balanced, min-heap invariant (log n steps). We can see that after this, we
@@ -381,7 +418,15 @@ def shell_sort(sequence):
 
     Preconditions: sequence is a mutable sequence i.e. a list
 
-    Descrition: Shell Sort is
+    ===========
+    Descrition:
+    =========== 
+    Shell Sort is a variant of insertion sort that
+    is optimized for large sequences. A series of gaps are initialized
+    and an insertion sort is done for each gap size - the value that the
+    sort is incremented. This allows us to prep large sequences by "half-sorting"
+    them. The final gap is of size 1 where a normal insertion sort occurs
+    with - hopefully - less steps than a typical insertion sort.
     """
 
     #List of gaps for the algorithm - Marcin Ciura Default Gaps
@@ -411,7 +456,10 @@ def bogo_sort(sequence):
 
     Precondition: sequence is a mutable sequence (i.e. a list)
 
-    Decription: Bogosort is a joke in the computer science community. It has a
+    ===========
+    Decription:
+    =========== 
+    Bogosort is a joke in the computer science community. It has a
     best case time complexity of O(1) and a worst case of O(Inf). The
     algorithm works by shuffling the sequence completely. If the sequence is sorted,
     return it. Otherwise, shuffle it again.
@@ -432,11 +480,14 @@ def bogobogo_sort(sequence):
 
     Precondition: sequence is a mutable sequence (i.e. a list)
 
-    Decription: Bogobogo sort is bogosort taken to the next level. The time
-    complexity of the algorithm is O(Infinity). For any large sized list, the
-    algorithm will NOT finish until the heat death of the entire universe
+    ===========
+    Decription: 
+    ===========
+    Bogobogo sort is bogosort taken to the next level. The time
+    complexity of the algorithm is O(Infinity). For a very large sized list, the
+    algorithm will NOT finish until the heat death of the universe
     which makes this algorithm impossible to complete. They sort of took a
-    joke and took it way to far.
+    joke and took it way too far.
     """
 
     while not _in_order(sequence):
@@ -453,35 +504,9 @@ def bogobogo_sort(sequence):
         return temp_array
 
 
-#============================================= PRIMALITY CHECKING ALGORITHMS ==============================================#
-def fermat_primality(value, counter):
-    pass
-
-
-def solovay_strassen(value, counter):
-    """
-    Returns: "Composite" if the value is a composite number, else it 
-    returns "probably prime"
-    
-    Description: Iterates `counter` amount of times for the Monte Carlo
-    test.
-    """
-
-    #Initialize the loop counter
-    i = 0
-    while i <= counter:
-        rand = random.randint(2, value-1)
-        x = (rand/value)
-        #If the logical conditions are met, we know its composite
-        if x == 0 or rand**((value-1)/2) % value != x % value:
-            return "composite"
-        i += 1
-    #If we never get to the composite number condition by the end of the loop
-    #We conclude that the number is probably prime
-    return "probably prime"
-
-
-#============================================= HELPER FUNCTIONS =======================================================#
+#======================
+#   Helper Functions
+#======================
 def _swap(sequence, a, b):
     """
     Procedure: Swaps the values of a and b in a mutable list called sequence.
@@ -556,7 +581,10 @@ def _partition(sequence, start, end):
     Preconditions: sequence is a mutable sequence (i.e. a list) and pivot and end
     are valid index positions of the sequence.
 
-    Description: Partitions the sequence[start...end] around the pivot - sequence[start] -
+    ============
+    Description:
+    ============ 
+    Partitions the sequence[start...end] around the pivot - sequence[start] -
     where the pivot is the first position in the unpartitioned list.
     """
 
@@ -584,7 +612,10 @@ def _merge(left, right):
     Returns: New list by merging two different sequences together in sorted
     order. 
 
-    Description: This is a helper function for the Mergesort algorithm.
+    ============
+    Description:
+    ============ 
+    This is a helper function for the Mergesort algorithm.
     """
 
     new_list = []
@@ -610,7 +641,10 @@ def _heapify(sequence):
 
     Precondition: sequence is a mutable sequence (i.e. a list)
 
-    Description: This algorithm runs in O(nlog(n)) time complexity and is a
+    ============
+    Description:
+    ============ 
+    This algorithm runs in O(nlog(n)) time complexity and is a
     helper function for the heap sort algorithm.
     """
 
@@ -655,7 +689,6 @@ def _in_order(sequence):
         counter += 1
     return True
 
-#===================================================== MAIN ========================================================#
 if __name__ == '__main__':
     #=========================================#
     #           TESTING APPLICATION           #

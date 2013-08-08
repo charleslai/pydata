@@ -3,6 +3,9 @@
 #July 13, 2013
 
 """
+===============
+Data Structures
+===============
 This module contains both implementations of common abstract data types as
 well as "helper" data structures for different implementations including
 linked nodes and tree cells.
@@ -11,6 +14,29 @@ If the class name of the ADT implementation has no sigils/suffix/prefix, then
 the ADT is a list implementation of the ADT. Otherwise, the augmented name
 will describe the implementation of the ADT i.e. linked for a linked list
 implementation and etc.
+
+========
+Contents
+========
+
+Helper Data Structures
+----------------------
+Node
+TreeCell
+
+Classic Data Structures
+-----------------------
+Bag
+Stack
+Linked Stack
+Queue
+Linked Queue
+Priority Queue
+Dictionary/Hash Table
+
+
+Other Data Structures
+---------------------
 """
 
 #==========================HELPER STRUCTURES================================
