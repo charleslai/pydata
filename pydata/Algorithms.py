@@ -1,4 +1,4 @@
-#Algorithms.py
+#algorithms.py
 #Charles J. Lai
 #July 3, 2013
 import random
@@ -6,7 +6,7 @@ import time
 
 """
 ==========
-Algorithms
+algorithms
 ==========
 Module of different searching and sorting algorithms. These algorithms will
 look slightly different in python than java because lists are mutable. This
@@ -96,7 +96,7 @@ def linear_search_r(sequence, value):
 def binary_search_i(sequence, value):
     """
     Returns: Index position of the searched value. If the value is not in
-    the list, raise a ValueError. Runs in O(log(n)) time. Function is iterative.
+    the list, raise a ValueError. Function is iterative. ~O(nlog(n))~
 
     Precondition: sequence is a mutable list already sorted from
     sequence[0...len(sequence)-1]
@@ -310,17 +310,20 @@ def quick_sort(sequence, start=0, end=None):
     time complexity for sorting a list.
     """
 
-    #I can't put a default length function targeting the "sequence" parameter in the header, so I check for None
+    #I can't put a default length function targeting the "sequence" parameter in 
+    #the header, so I check for None
     if end is None:
         end = len(sequence) - 1
-    #The base case: If the start and end indices are the same or start > end, return and do nothing
+    #The base case: If the start and end indices are the same or start > end, return 
+    #and do nothing
     if end - start < 1:
         return
-    #Partition the list by a pivot. Values less than the pivot go before the pivot and vice versa for
-    #values greater than the pivot. This runs in O(n)
+    #Partition the list by a pivot. Values less than the pivot go before the pivot 
+    #and vice versa for values greater than the pivot. This runs in O(n)
     pivot = _partition(sequence, start, end)
-    #Recursively call quick sort of the left side of list before the pivot and the right side of the list
-    #after the pivot - we essentially recursively partition until the list is sorted! O(log(n)) time.
+    #Recursively call quick sort of the left side of list before the pivot and the 
+    #right side of the list after the pivot - we essentially recursively partition 
+    #until the list is sorted! O(log(n)) time.
     quick_sort(sequence, start, pivot - 1)
     quick_sort(sequence, pivot + 1, end)
 
@@ -375,12 +378,12 @@ def heap_sort(sequence):
         #Extract the min element (root) from the heap
         sorted_list.append(heap[0])
         heap.remove(heap[0])
-        #Case 0: If the heap has only one element left, add it to the sorted list, and break out by returning the
-        #sorted list
+        #Case 0: If the heap has only one element left, add it to the sorted 
+        #list, and break out by returning the sorted list
         if len(heap) == 1:
             sorted_list.append(heap[0])
             return sorted_list
-        #After extraction, pop the last value of the heap and add it to the top of the heap
+        #After extraction, pop the last value of the heap and add it to the top
         heap.insert(0, heap.pop())
         #Maintain the heap invariant
         root = 0
@@ -389,11 +392,13 @@ def heap_sort(sequence):
             left_child = 2 * root + 1
             right_child = 2 * root + 2
             smallest_child = None
-            #Case 1: There isn't a left child (and hence no children) - Heap invariant is maintained and break out
+            #Case 1: There isn't a left child (and hence no children) - Heap 
+            #invariant is maintained and break out
             if left_child > len(heap) - 1:
                 heap_invariant = True
                 break
-            #Case 2: There is only a left child - Test the heap invariant on that child only and then break out
+            #Case 2: There is only a left child - Test the heap invariant on 
+            #that child only and then break out
             if right_child > len(heap) - 1:
                 smallest_child = left_child
                 if heap[root] <= heap[smallest_child]:
@@ -402,13 +407,14 @@ def heap_sort(sequence):
                     _swap(heap, root, smallest_child)
                     heap_invariant = True
                 break
-            #Case 3: There are two children - Test the heap invariant normally: Find the smallest child and compare with root
+            #Case 3: There are two children - Test the heap invariant normally: 
+            #Find the smallest child and compare with root
             if heap[left_child] <= heap[right_child]:
                 smallest_child = left_child
             if heap[right_child] < heap[left_child]:
                 smallest_child = right_child
-            #Swap down the root if its greater than the smallest child, else the invariant
-            #is already met
+            #Swap down the root if its greater than the smallest child, else 
+            #the invariant is already met
             if heap[root] <= heap[smallest_child]:
                 heap_invariant = True
             if heap[root] > heap[smallest_child]:
@@ -625,6 +631,7 @@ def _merge(left, right):
     new_list = []
     left_index = 0
     right_index = 0
+    #Compare both elements and add the least value to the merged sequence
     while left_index < len(left) and right_index < len(right):
         if left[left_index] < right[right_index]:
             new_list.append(left[left_index])
@@ -632,6 +639,7 @@ def _merge(left, right):
         else:
             new_list.append(right[right_index])
             right_index += 1
+    #Once one list is empty, add the rest of the other list to the merged seq
     if left_index >= len(left):
         new_list = new_list + (right[right_index:])
     else:
@@ -692,6 +700,7 @@ def _in_order(sequence):
             return False
         counter += 1
     return True
+
 
 if __name__ == '__main__':
     #=========================================#
