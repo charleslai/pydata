@@ -31,6 +31,9 @@ Sorting Algorithms:
 *quick sort
 *merge sort 
 *shell sort
+*radix sort
+*bogosort
+*bogobogosort
 
 """
 #===========================
@@ -38,9 +41,8 @@ Sorting Algorithms:
 #===========================
 def linear_search_i(sequence, value):
     """
-    Returns: Index position of the searched value. If the value is not
-    in the list, raise a ValueError. Runs in O(n) time. Function is an
-    iterative function.
+    Returns: Index position of the searched value in O(n^2) time. If the 
+    value is not in the list, raise a ValueError. Iterative function.
 
     Precondition: sequence is a mutable sequence (i.e. a list)
 
@@ -95,8 +97,8 @@ def linear_search_r(sequence, value):
 
 def binary_search_i(sequence, value):
     """
-    Returns: Index position of the searched value. If the value is not in
-    the list, raise a ValueError. Function is iterative. ~O(nlog(n))~
+    Returns: Index position of the searched value in O(n^2) time. If the 
+    value is not in the list, raise a ValueError. Iterative function.
 
     Precondition: sequence is a mutable list already sorted from
     sequence[0...len(sequence)-1]
@@ -137,8 +139,8 @@ def binary_search_i(sequence, value):
 
 def binary_search_r(sequence, value):
     """
-    Returns: Index position o the searched value. If the value is not in the
-    list, raise a ValueError. Runs in O(log(n)) time. Function is recursive.
+    Returns: Index position of the searched value in O(nlog(n)) time. If 
+    the value is not in the list, raise a ValueError. Recursive. 
 
     Precondition: sequence is a mutafble list already sorted from
     sequence[0...len(sequence)-1]
@@ -330,7 +332,8 @@ def quick_sort(sequence, start=0, end=None):
 
 def merge_sort(sequence):
     """
-    Returns: A newly sorted list from an unsorted list. Not sorted in place.
+    Returns: A newly sorted list from an unsorted list in O(nlog(n)) time. 
+    Not sorted in place.
 
     Precondition: sequence is a mutable sequence (i.e. a list)
 
@@ -455,9 +458,40 @@ def shell_sort(sequence):
             i += 1
 
 
+def radix_sort(sequence, first, last, max_digits):
+    """
+    Returns: a sorted array of positive decimal integers sequence[first..last]
+    into ascending order. Max digits = # of digits in the longest integer.
 
-def radix_sort(sequence):
-    pass
+    Preconditions: sequence contains only positive decimal integers.
+
+    ===========
+    Description
+    ===========
+    The sorting algorithms that we have seen so far are use comparisons.
+    The radix sort, however, uses a series of buckets to sort each positive
+    integer by digits at a time. We take the rightmost digit of each number
+    and use it as an index into a series of buckets, i.e. if the rightmost 
+    digit is a 3, we place that integer into 3 label bucket. Extra digits
+    of zero are padded for smaller integers. Applying these steps to a 
+    series iteratively, we can sort the entire sequence of positive 
+    integers in O(d*n) time => O(n) time. This is the fastest sorting 
+    algorithm; however, it is not the most appropriate algorithm in many 
+    cases.
+    """
+    #Separate the digits into buckets max_digits number of times
+    for d in range(0,max_digits):
+        #Clear the buckets
+        buckets = [[], [], [], [], [], [], [], [], [], []]
+        #Separate the integers into the buckets based on each digit
+        for index in range(first, last+1):
+            digit = _get_digit(sequence[index], d)
+            buckets[digit] = buckets[digit] + [sequence[index]]
+        sequence = []
+        #Add the bucket values into the sequence and repeat
+        for b in range(0, 10):
+            sequence = sequence + buckets[b]
+    return sequence
 
 
 def bogo_sort(sequence):
@@ -493,13 +527,13 @@ def bogobogo_sort(sequence):
     ===========
     Decription: 
     ===========
-    Bogobogo sort is bogosort taken to the next level. The time
-    complexity of the algorithm is O(Infinity). For a very large sized list, the
-    algorithm will NOT finish until the heat death of the universe
-    which makes this algorithm impossible to complete. They sort of took a
-    joke and took it way too far.
+    Bogobogo sort is bogosort taken to the next level. The time complexity 
+    of the algorithm is O(Infinity). For a very large sized list, the 
+    algorithm will NOT finish until the heat death of the universe which 
+    makes this algorithm impossible to complete. 
+    
+    A joke taken too far.
     """
-
     while not _in_order(sequence):
         counter = 1
         while counter < len(sequence) - 1:
@@ -702,6 +736,17 @@ def _in_order(sequence):
     return True
 
 
+def _get_digit(integer, d):
+    """
+    Returns: Digit d of an integer. The 0th digit is the rightmost digit.
+    """
+    integer_string = str(integer)
+    d = d + 1
+    if d > len(integer_string):
+        return 0
+    return int(integer_string[-d])
+
+
 if __name__ == '__main__':
     #=========================================#
     #           TESTING APPLICATION           #
@@ -740,6 +785,10 @@ if __name__ == '__main__':
     b = [random.randint(1,10) for _ in range(5000)]
     shell_sort(b)
     print `b`
+    #=========================================#
+    print "RADIX SORT:"
+    b = [random.randint(1,10000) for _ in range(100000)]
+    print radix_sort(b, 0, 99999, 4)
 
 
 

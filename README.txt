@@ -37,6 +37,9 @@ Sorting Algorithms:
 *quick sort
 *merge sort 
 *shell sort
+*radix sort
+*bogo sort
+*bogobogo sort
 
 Data Structures
 ===============
@@ -54,6 +57,8 @@ Contents
 --------
 Helper Data Structures:
 *Node
+*Linked List
+*Doubly Linked List
 *TreeCell
 
 Classic Data Structures:
