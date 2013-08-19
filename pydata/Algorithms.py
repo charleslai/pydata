@@ -21,19 +21,19 @@ students.
 Contents
 --------
 Searching Algorithms: 
-*linear search (iterative and recursive)
-*binary search (iterative and recursive)
-*bogosearch 
+* Linear Search (iterative and recursive)
+* Binary Search (iterative and recursive)
+* Bogosearch 
 
 Sorting Algorithms: 
-*insertion sort
-*selection sort
-*quick sort
-*merge sort 
-*shell sort
-*radix sort
-*bogosort
-*bogobogosort
+* Insertion Sort
+* Selection Sort
+* Quick Sort
+* Merge Sort 
+* Shell Sort
+* Radix Sort
+* Bogo Sort
+* Bogobogo Sort
 
 """
 #===========================
@@ -742,15 +742,16 @@ def _get_digit(integer, d):
     """
     integer_string = str(integer)
     d = d + 1
+    #Account for extra digit padding
     if d > len(integer_string):
         return 0
     return int(integer_string[-d])
 
 
+#=========================================#
+#             TESTING SCRIPT              #
+#=========================================#
 if __name__ == '__main__':
-    #=========================================#
-    #           TESTING APPLICATION           #
-    #=========================================#
     print "INSERTION SORT:"
     b = [random.randint(1,10) for _ in range(5000)]
     insertion_sort(b)
@@ -787,8 +788,8 @@ if __name__ == '__main__':
     print `b`
     #=========================================#
     print "RADIX SORT:"
-    b = [random.randint(1,10000) for _ in range(100000)]
-    print radix_sort(b, 0, 99999, 4)
+    b = [random.randint(1,10) for _ in range(5000)]
+    print radix_sort(b, 0, 4999, 2)
 
 
 

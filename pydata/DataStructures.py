@@ -18,19 +18,19 @@ implementation and etc.
 Contents
 --------
 Helper Data Structures:
-*Node
-*LinkedList
-*DoubleLinkedList
-*TreeCell
+* Node
+* Linked List
+* Doubly Linked List
+* TreeCell
 
 Classic Data Structures:
-*Bag
-*Stack
-*Linked Stack
-*Queue
-*Linked Queue
-*Priority Queue
-*Dictionary/Hash Table
+* Bag
+* Stack
+* Linked Stack
+* Queue
+* Linked Queue
+* Priority Queue
+* Dictionary/Hash Table
 
 """
 #============================

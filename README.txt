@@ -27,19 +27,19 @@ students.
 Contents
 --------
 Searching Algorithms: 
-*linear search (iterative and recursive)
-*binary search (iterative and recursive)
-*bogosearch 
+* Linear Search (iterative and recursive)
+* Binary Search (iterative and recursive)
+* Bogosearch 
 
 Sorting Algorithms: 
-*insertion sort
-*selection sort
-*quick sort
-*merge sort 
-*shell sort
-*radix sort
-*bogo sort
-*bogobogo sort
+* Insertion Sort
+* Selection Sort
+* Quick Sort
+* Merge Sort 
+* Shell Sort
+* Radix Sort
+* Bogo Sort
+* Bogobogo Sort
 
 Data Structures
 ===============
@@ -56,16 +56,16 @@ implementation and etc.
 Contents
 --------
 Helper Data Structures:
-*Node
-*Linked List
-*Doubly Linked List
-*TreeCell
+* Node
+* Linked List
+* Doubly Linked List
+* TreeCell
 
 Classic Data Structures:
-*Bag
-*Stack
-*Linked Stack
-*Queue
-*Linked Queue
-*Priority Queue
-*Dictionary/Hash Table
+* Bag
+* Stack
+* Linked Stack
+* Queue
+* Linked Queue
+* Priority Queue
+* Dictionary/Hash Table
