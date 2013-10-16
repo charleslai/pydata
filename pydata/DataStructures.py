@@ -33,9 +33,8 @@ Classic Data Structures:
 * Dictionary/Hash Table
 
 """
-#============================
-#   Helper Data Structures
-#============================
+
+#== Basic Data Structures ================================================
 class Node(object):
     """
     Instances represent a linked node that can be used to implement ADTs
@@ -213,9 +212,7 @@ class TreeCell(object):
     """
     pass
 
-#=============================
-#   Classic Data Structures
-#=============================
+#== Specific data structures =============================================
 class Bag(object):
     """
     Instances represent a list implementation of the bag data structure.
@@ -396,10 +393,4 @@ class HashTable(object):
     pass
 
 
-#===========================
-#   Other Data Structures
-#===========================
-
-#====================
-#   Helper Methods
-#====================
+#== Helper Methods =======================================================
