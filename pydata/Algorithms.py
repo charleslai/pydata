@@ -34,11 +34,9 @@ Sorting Algorithms:
 * Radix Sort
 * Bogo Sort
 * Bogobogo Sort
-
 """
-#===========================
-#   Searching Algorithms   
-#===========================
+
+#== Searching Algorithms =================================================
 def linear_search_i(sequence, value):
     """
     Returns: Index position of the searched value in O(n^2) time. If the 
@@ -195,9 +193,7 @@ def bogo_search(sequence, value, counter=20):
             raise ValueError
 
 
-#========================
-#   Sorting Algorithms   
-#========================
+#== Soritng Algorithms ===================================================
 def bubble_sort(sequence):
     """
     Procedure: Sorts the list in O(n^2) worst case time. 
@@ -548,9 +544,7 @@ def bogobogo_sort(sequence):
         return temp_array
 
 
-#======================
-#   Helper Functions
-#======================
+#== Helper Functions =====================================================
 def _swap(sequence, a, b):
     """
     Procedure: Swaps the values of a and b in a mutable list called sequence.
@@ -748,19 +742,17 @@ def _get_digit(integer, d):
     return int(integer_string[-d])
 
 
-#=========================================#
-#             TESTING SCRIPT              #
-#=========================================#
+#== Testing Application ==================================================#
 if __name__ == '__main__':
     print "INSERTION SORT:"
     b = [random.randint(1,10) for _ in range(5000)]
     insertion_sort(b)
     print `b`
     #=========================================#
-    print "BUBBLE SORT:"
+    """print "BUBBLE SORT:"
     b = [random.randint(1,10) for _ in range(5000)]
     bubble_sort(b)
-    print `b`
+    print `b`"""
     #=========================================#
     print "SELECTION SORT:"
     b = [random.randint(1,10) for _ in range(5000)]
