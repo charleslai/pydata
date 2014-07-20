@@ -49,34 +49,34 @@ class Node(object):
     field.
     """
     #Properties
-    _data = None
-    _next = None
-    _size = 0
+    __data = None
+    __next = None
+    __size = 0
 
     @property
     def data(self):
-        return self._data
+        return self.__data
     
     @data.setter
     def data(self, data):
-        self._data = data
+        self.__data = data
 
     @property
     def next(self):
-        return self._next
+        return self.__next
 
     @next.setter
     def next(self, node):
         assert type(node) == Node or type(node) == None, "The next data given is not a Node object"
-        self._next = node
+        self.__next = node
 
     #Methods
     def __init__(self, data=None, next=None):
         """
         Constructor:
         """
-        self._data = data
-        self._next = next
+        self.__data = data
+        self.__next = next
 
     def insert(self, value):
         """
@@ -89,7 +89,7 @@ class Node(object):
             node = Node(value)
         #Use a current and scout probe to interatively insert a node
         current = self
-        scout = self._next
+        scout = self.__next
         while scout != None:
             current = scout
             scout = scout.next
@@ -107,7 +107,7 @@ class Node(object):
 
         #Use a current and scout probe to iteratively remove the value/nodes
         current = self
-        scout = self._next
+        scout = self.__next
         while scout != None and scout.data != value:
             current = scout
             scout = scout.next
@@ -125,7 +125,7 @@ class Node(object):
         """
         #Use a current and scout probe to iteratively find the value/nodes
         current = self
-        scout = self._next
+        scout = self.__next
         while scout != None and scout.data != value:
             current = scout
             scout = scout.next
@@ -161,7 +161,7 @@ class LinkedList(Node):
         super(LinkedList, self).__init__(head_data, None)
         #Add the series of nodes after - the data of the list
         node_after_header = Node(data, next)
-        self._next = node_after_header
+        self.__next = node_after_header
 
     def remove(self, value):
         """
@@ -173,7 +173,7 @@ class LinkedList(Node):
         """
         #Use a current and scout probe to iteratively remove the value/nodes
         current = self
-        scout = self._next
+        scout = self.__next
         while scout != None and scout.data != value:
             current = scout
             scout = scout.next
@@ -224,8 +224,8 @@ class Bag(object):
     resembles a bag.
     """
     #Properties
-    _data = []              #Field:The list of data wrapped in a Bag
-    _size = 0               #Field:The number of entries in the Bag
+    __data = []              #Field:The list of data wrapped in a Bag
+    __size = 0               #Field:The number of entries in the Bag
     _DEFAULT_CAPACITY = 25  #Field:The default size of a given Bag
 
     def __init__(self, data=[], DEFAULT_CAPACITY = 25):
@@ -234,13 +234,13 @@ class Bag(object):
         
         Precondition: data is a valid list of data
         """
-        self._data = data
-        self._size = len(self._data)
+        self.__data = data
+        self.__size = len(self.__data)
         self._DEFAULT_CAPACITY = DEFAULT_CAPACITY
 
     #Data Entry/Removal Methods
     def add(self, new_entry):
-        self._data.append(new_entry)
+        self.__data.append(new_entry)
         
     def remove(self):
         pass
@@ -250,13 +250,13 @@ class Bag(object):
 
     #Data Checking Methods
     def get_current_size(self):
-        return self._size
+        return self.__size
 
     def is_full(self):
         pass
 
     def is_empty(self):
-        if self._size <= 0:
+        if self.__size <= 0:
             return True
         else:
             return False
@@ -280,26 +280,26 @@ class Stack(object):
     Queue data structure which is FIFO (First in First Out).
     """
     #Properties
-    _data = []              #Field:The list of data wrapped as a Stack
+    __data = []              #Field:The list of data wrapped as a Stack
 
     def __init__(self, data=[]):
         """
         Constructor: Creates a new instance of the stack data structure
         """
-        self._data = data
+        self.__data = data
 
     #Data Entry/Removal Methods
     def push(self, value):
-        _data.append(value)
+        __data.append(value)
 
     def pop(self):
-        _data.pop([len(_data) - 1])
+        __data.pop([len(__data) - 1])
 
     def peek(self):
-        return _data[len(_data) - 1]
+        return __data[len(__data) - 1]
 
     def clear(self):
-        del s[0:len(_data)]
+        del s[0:len(__data)]
 
 
 class LinkedStack(object):
